@@ -24,7 +24,8 @@ class MesageControler extends Controller
             $q->where('receiver_id', $id);
             $q->where('creator_id', $user->id);
         })->get();
-        Mesage::where('receiver_id' , $user->id)->update([ 'seen' => 1]); 
+        Mesage::where('creator_id' , $id)->update([ 'seen' => 1]);
+        // Mesage::where('receiver_id' , $user->id)->update([ 'seen' => 1]); 
         return $messages;
 
     }
